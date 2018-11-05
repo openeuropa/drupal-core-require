@@ -9,6 +9,11 @@ You should use the same version constraint for it as you use for Drupal core.
 
 It applies some patches on ``drupal/core`` that are needed in OPENEUROPA modules.
 
+## Patches list
+
+- [Patch](https://www.drupal.org/files/issues/2018-09-14/2189267-88.patch) for Core issue [#2189267](https://www.drupal.org/project/drupal/issues/2189267) -
+When content language detection is different from interface language detection, the detected language must be applied to the rendered content.
+
 ## Usage
 
 ### Drupal Core 8.6.x
