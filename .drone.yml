@@ -1,0 +1,34 @@
+workspace:
+  base: /test
+  path: drupal-core-require
+
+services:
+  web:
+    image: fpfis/httpd-php-dev:7.1
+    environment:
+    - DOCUMENT_ROOT=/test/drupal-core-require
+
+pipeline:
+  composer-install:
+    group: prepare
+    image: fpfis/httpd-php-dev:7.1
+    volumes:
+    - /cache:/cache
+    commands:
+    - composer install --ansi --no-suggest --no-progress
+
+  composer-update-lowest:
+    group: prepare-update
+    image: fpfis/httpd-php-dev:7.1
+    volumes:
+    - /cache:/cache
+    commands:
+    - composer update --prefer-lowest --ansi --no-suggest --no-progress
+    when:
+      matrix:
+        COMPOSER_BOUNDARY: lowest
+
+matrix:
+  COMPOSER_BOUNDARY:
+  - lowest
+  - highest

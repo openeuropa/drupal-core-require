@@ -1,0 +1,32 @@
+{
+    "name": "openeuropa/drupal-core-require",
+    "description": "Dependencies and Drupal core patches needed by OpenEuropa components.",
+    "type": "library",
+    "license": "EUPL-1.2",
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "require": {
+        "cweagans/composer-patches": "^1.6",
+        "drupal/core": "8.7.x-dev"
+    },
+    "repositories": {
+        "drupal": {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        }
+    },
+    "extra": {
+        "composer-exit-on-patch-failure": true,
+        "patches": {
+            "drupal/core": {
+                "https://www.drupal.org/project/drupal/issues/2189267": "https://www.drupal.org/files/issues/2018-09-14/2189267-88.patch"
+            }
+        },
+        "installer-paths": {
+            "build/core": ["type:drupal-core"]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
