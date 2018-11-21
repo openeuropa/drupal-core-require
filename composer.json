@@ -17,11 +17,6 @@
     },
     "extra": {
         "composer-exit-on-patch-failure": true,
-        "patches": {
-            "drupal/core": {
-                "https://www.drupal.org/project/drupal/issues/2189267": "https://www.drupal.org/files/issues/2018-09-14/2189267-88.patch"
-            }
-        },
         "installer-paths": {
             "build/core": ["type:drupal-core"]
         }
